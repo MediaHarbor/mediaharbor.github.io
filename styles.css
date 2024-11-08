@@ -1,43 +1,77 @@
 body {
-    overflow: hidden; /* Disable the default scrollbar */
+    overflow: hidden;
     font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
 }
+
+@keyframes swingLeftToRight {
+    0% { transform: rotate(3deg); }
+    50% { transform: rotate(-6deg); }
+    100% { transform: rotate(3deg); }
+}
+
+.banner svg .anchor {
+    transform-origin: 10% 10%;
+    animation: swingLeftToRight 4s infinite ease-in-out alternate;
+}
+
+.banner svg:hover .anchor {
+    animation: swingFromTopRight 3s infinite ease-in-out;
+    transform-origin: 90% 10%;
+}
+
+.banner svg {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.banner svg:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
 .photoshowcase {
     display: inline !important;
 }
+
 .fp-tableCell {
     display: table-cell;
     vertical-align: middle;
     width: 100%;
     height: 100% !important;
 }
+
 .hero {
     height: 90vh;
     background: linear-gradient(135deg, #8e44ad, #e67e22, #27ae60);
     color: #fff;
 }
+
 .features-section h2, .showcase-section h2 {
     font-size: 2.5rem;
     font-weight: 700;
     color: #fff;
 }
+
 .features-section p, .carousel-caption p {
     color: #eee;
     font-size: 1rem;
 }
+
 .carousel-caption h5 {
     font-size: 1.5rem;
     font-weight: 600;
 }
+
 footer p {
     margin: 0;
     font-size: 0.9rem;
 }
+
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
 .section {
     text-align: center;
     color: white;
@@ -46,45 +80,90 @@ footer p {
     align-items: center;
 }
 
-.download-section { background: linear-gradient(135deg, #6a1b9a, #bc5fe4); height: 100vh; }
-.features-section { background: linear-gradient(135deg, #ff5722, #ff9800); height: 100vh; }
-.showcase-section { background: linear-gradient(135deg, #4caf50, #66bb6a); height: 100vh; }
+.download-section {
+    background: linear-gradient(135deg, #6a1b9a, #bc5fe4);
+    height: 100vh;
+}
+
+.features-section {
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    height: 100vh;
+    padding: 4rem 0;
+    min-height: 100vh;
+}
+
+.showcase-section {
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    height: 100vh;
+}
+
+.platform-section {
+    background: linear-gradient(135deg, #8687fe, #4330c3);
+    height: 100vh;
+    padding: 4rem 0;
+    min-height: 100vh;
+}
 
 .download-section .btn {
     transition: background-color 0.3s, transform 0.3s;
 }
+
 .download-section .btn:hover {
     transform: translateY(-3px);
-    background-color: transparent; /* Darker shade for hover */
+    background-color: transparent;
 }
+
 .carousel-inner img {
     max-width: 80%;
     max-height: 80vh;
 }
 
-/* New CSS for hover animation and 3D effect */
-.features-section .col-md-4 {
+.features-section .col-md-4, .platform-section .col-md-4 {
     transition: transform 0.3s, box-shadow 0.3s;
 }
-.features-section .col-md-4:hover {
+
+.features-section .col-md-4:hover, .platform-section .col-md-4:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Correct positioning of carousel controls */
 .carousel-control-prev, .carousel-control-next {
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1;
 }
 
-/* Ensure carousel captions are visible */
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
 .carousel-caption {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    padding: 1rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 0.5rem;
     transition: opacity 0.5s ease;
 }
+
+.carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
 
 .carousel-item-next .carousel-caption,
 .carousel-item-prev .carousel-caption {
@@ -97,32 +176,82 @@ footer p {
     opacity: 1;
 }
 
-/* Adjust positioning of the carousel control buttons */
-.carousel-control-prev,
-.carousel-control-next {
-    top: 50%;
-    transform: translateY(-50%);
+.text-git {
+    color: #d74a33;
 }
 
-.carousel-control-prev {
-    left: 10px;
+.icon {
+    margin-bottom: 1.5rem;
 }
 
-.carousel-control-next {
-    right: 10px;
+.icon img {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.carousel-control-prev, .carousel-control-next {
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1; /* Ensure controls are above images */
+.icon.qobuz-icon, .icon.deezer-icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.icon.qobuz-icon{
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2480 2480"><style>.st0{fill:%231D1D1B;}.st1{fill:%23FFFFFF;}</style><g><path class="st0" d="M2216.5,1963.4c152.8-204.9,244.4-458.2,244.4-733.6C2460.8,550.7,1910.4,0,1231,0S1.2,550.5,1.2,1229.8 S551.7,2459.7,1231,2459.7s526.8-90.8,731.4-242.7l-3.6,4.4l250.9,258.7l268.6-258.7l-261.6-257.7L2216.5,1963.4z"/><g><circle class="st1" cx="1239.7" cy="1240" r="1136.3"/><path d="M1239.7,325c-505.4,0-915,409.8-915,915s409.8,915,915,915s915-409.8,915-915S1744.9,325,1239.7,325L1239.7,325z M1239.7,1599.9c-198.8,0-359.9-161.1-359.9-359.9s161.1-359.9,359.9-359.9s359.9,161.1,359.9,359.9S1438.3,1599.9,1239.7,1599.9 L1239.7,1599.9z"/><circle cx="1239.7" cy="1240" r="78"/><path class="st1" d="M1750,1619.5c-18.2-24-46.7-39.5-79-39.5c-54.7,0-99.1,44.3-99.1,99.1s10.7,50.9,27.9,68.5 c1.2,1.2,2.4,2.4,3.6,3.4l624.6,610.8l134.9-127.9l-613-614.2L1750,1619.5z"/></g></g></svg>');
+}
+.icon.deezer-icon{
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 277.668 277.67001"><style>.st1%7Bfill-rule:evenodd;clip-rule:evenodd;fill:%23A238FF;%7D</style><path class="st1" d="m 232.881,42.363 c 2.569,-14.89 6.339,-24.253 10.515,-24.271 h 0.008 c 7.787,0.027 14.099,32.499 14.099,72.59 0,40.092 -6.321,72.59 -14.116,72.59 -3.196,0 -6.145,-5.518 -8.519,-14.765 -3.752,33.85 -11.538,57.119 -20.552,57.119 -6.974,0 -13.233,-13.978 -17.435,-36.022 -2.869,41.924 -10.09,71.669 -18.53,71.669 -5.297,0 -10.126,-11.787 -13.701,-30.979 -4.299,39.617 -14.231,67.376 -25.813,67.376 -11.582,0 -21.532,-27.75 -25.813,-67.376 -3.549,19.192 -8.378,30.979 -13.701,30.979 -8.44,0 -15.643,-29.745 -18.53,-71.669 -4.202,22.044 -10.443,36.022 -17.435,36.022 -9.004,0 -16.8,-23.261 -20.551,-57.119 -2.357,9.274 -5.323,14.765 -8.519,14.765 -7.795,0 -14.116,-32.498 -14.116,-72.59 0,-40.091 6.321,-72.59 14.116,-72.59 4.184,0 7.928,9.39 10.523,24.271 C 48.968,16.688 55.721,0 63.357,0 c 9.066,0 16.923,23.6 20.64,57.87 3.637,-24.942 9.155,-40.842 15.334,-40.842 8.66,0 16.022,31.273 18.75,74.897 5.129,-22.366 12.554,-36.398 20.773,-36.398 8.218,0 15.643,14.04 20.763,36.398 2.737,-43.624 10.09,-74.897 18.751,-74.897 6.17,0 11.679,15.901 15.334,40.842 C 197.411,23.6 205.268,0 214.334,0 c 7.61,0 14.389,16.697 18.547,42.363 z M 0,83.542 C 0,65.62 3.584,51.088 8.007,51.088 c 4.423,0 8.007,14.532 8.007,32.454 0,17.921 -3.584,32.454 -8.007,32.454 C 3.584,115.996 0,101.463 0,83.542 Z m 261.654,0 c 0,-17.922 3.584,-32.454 8.007,-32.454 4.422,0 8.007,14.532 8.007,32.454 0,17.921 -3.585,32.454 -8.007,32.454 -4.423,0 -8.007,-14.533 -8.007,-32.454 z"/></svg>');
+}
+.feature-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    height: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
 }
 
-/* Adjust positioning of the carousel control buttons */
-.carousel-control-prev {
-    left: 10px;
+.features-section .feature-box, .platform-section .feature-box {
+    margin-bottom: 2rem;
 }
 
-.carousel-control-next {
-    right: 10px;
+.features-section .feature-box:hover, .platform-section .feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .features-section .feature-box, .platform-section .feature-box {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .features-section, .platform-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    .icon {
+        margin-bottom: 0.5rem;
+    }
+
+    .feature-box h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-box p {
+        font-size: 0.9rem;
+    }
+
+    .features-section .row {
+        display: flex;
+        flex-direction: column;
+    }
 }
