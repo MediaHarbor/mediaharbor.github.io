@@ -9,6 +9,38 @@ body {
     50% { transform: rotate(-6deg); }
     100% { transform: rotate(3deg); }
 }
+.banner svg .waves {
+    animation: waveMove 3s ease-in-out infinite alternate;
+}
+
+.banner svg .waves:nth-of-type(1) {
+    animation-delay: 0s;
+}
+
+.banner svg .waves:nth-of-type(2) {
+    animation-delay: 0.5s;
+}
+
+.banner svg .waves:nth-of-type(3) {
+    animation-delay: 1s;
+}
+
+.banner svg .waves:nth-of-type(4) {
+    animation-delay: 1.5s;
+}
+
+@keyframes waveMove {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(10px);
+    }
+}
+
 
 .banner svg .anchor {
     transform-origin: 10% 10%;
