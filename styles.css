@@ -9,9 +9,9 @@ body {
     50% { transform: rotate(-6deg); }
     100% { transform: rotate(3deg); }
 }
-.banner svg .waves {
-    animation: waveMove 3s ease-in-out infinite alternate;
-}
+    .banner svg .waves {
+        animation: waveMove 3s ease-in-out infinite alternate;
+    }
 
 .banner svg .waves:nth-of-type(1) {
     animation-delay: 0s;
