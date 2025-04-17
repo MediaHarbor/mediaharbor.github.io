@@ -150,3 +150,58 @@ class DownloadManager {
 document.addEventListener("DOMContentLoaded", () => {
     new DownloadManager();
 });
+$(document).ready(function() {
+    $('#macDownloadArm64').click(function(e) {
+        e.preventDefault();
+        const downloadUrl = $(this).attr('href');
+        const fileName = downloadUrl.split('/').pop();
+        const modalContent = `
+      <div class="modal fade" id="macosArmInstructions" tabindex="-1" aria-labelledby="macosArmInstructionsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #2a2a2a; color: #ffffff;">
+            <div class="modal-header" style="border-bottom: 1px solid #444;">
+              <h5 class="modal-title" id="macosArmInstructionsLabel" style="color: #ffffff;">Notes for MacOS silicon users</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p style="color: #ffffff;">After downloading <code style="color: #66bb6a;">${fileName}</code>, don't mount it.</p>
+              <ol style="color: #ffffff; text-align: left;">
+                <li>Open terminal</li>
+                <li>Navigate to your downloads folder (usually <code style="color: #66bb6a;">cd ~/Downloads</code>)</li>
+                <li>Execute: <code style="color: #66bb6a;">xattr -d com.apple.quarantine ${fileName}</code></li>
+                <li>Now you can mount and install the app.</li>
+              </ol>
+              <p class="mt-2" style="color: #aaaaaa;">Due to Apple's code signing requirement, we have to remove <code style="color: #66bb6a;">com.apple.quarantine</code> flag before installing, otherwise we'll keep getting damaged dmg error.</p>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid #444;">
+              <button type="button" class="btn" style="background: rgba(255,255,255,0.2); color: white;" data-bs-dismiss="modal">Close</button>
+              <a href="${downloadUrl}" id="continueArmDownload" class="btn" style="background: linear-gradient(135deg, #6a1b9a, #bc5fe4); color: white;" target="_blank">Continue to Download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+        if ($('#macosArmInstructions').length === 0) {
+            $('body').append(modalContent);
+        } else {
+            $('#macosArmInstructions').replaceWith(modalContent);
+        }
+        const armModal = new bootstrap.Modal(document.getElementById('macosArmInstructions'));
+        armModal.show();
+    });
+});
+
+$(document).ready(function() {
+    // Fetch GitHub star count
+    $.ajax({
+        url: 'https://api.github.com/repos/MediaHarbor/MediaHarbor',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            $('#github-stars').text(data.stargazers_count.toLocaleString());
+        },
+        error: function() {
+            $('#github-stars').text('★');
+        }
+    });
+});

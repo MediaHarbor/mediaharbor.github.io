@@ -309,3 +309,106 @@ body {
     min-height: 100vh;
     padding: 4rem 1rem;
 }
+
+.github-button, .donate-btc-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.github-button:hover, .donate-btc-button:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.github-button .fa-github, .donate-btc-button .fa-bitcoin {
+    font-size: 1.25rem;
+}
+
+.star-count {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+.star-count .fa-star {
+    color: #ffcc00;
+    font-size: 0.8rem;
+}
+
+/* Desktop layout */
+.github-button-container {
+    width: fit-content;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10;
+}
+
+.donate-button-container {
+    position: absolute;
+    width: fit-content;
+    top: 2rem;
+    left: 2rem;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0 1rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    .github-button-container,
+    .donate-button-container {
+        position: static;
+        margin: 0 0.5rem;
+    }
+    .github-button, .donate-btc-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+        .star-text {
+            display: none;
+        }
+
+        .top-buttons{
+            display: flex;
+        }
+        .github-button, .donate-btc-button {
+            padding: 0.6rem;
+        }
+
+        .github-button .fa-github, .donate-btc-button .fa-bitcoin {
+            margin: 0;
+        }
+
+        .star-count {
+            padding: 0.25rem 0.5rem;
+        }
+    }
+}
