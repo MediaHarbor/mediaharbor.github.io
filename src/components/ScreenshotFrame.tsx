@@ -28,12 +28,6 @@ export function ScreenshotFrame({ src, alt, caption, eager = false }: Props) {
             }}
           />
         )}
-        <div className="placeholder">
-          <span>
-            Screenshot placeholder · 1280×800
-            {src ? ` · drop ${src}` : ''}
-          </span>
-        </div>
       </div>
     </figure>
   );
