@@ -22,6 +22,7 @@
     "vite-react-ssg": "^0.9.1-beta.1"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "react": "^19.2.5",
