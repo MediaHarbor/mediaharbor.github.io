@@ -111,7 +111,7 @@ export default function Download() {
             store="flathub"
             title="Flathub"
             description="Universal Linux package. Auto-updates and works on every major distribution."
-            command="flatpak install flathub net.mediaharbor.MediaHarbor"
+            command="flatpak install flathub org.mediaharbor.MediaHarbor"
             href={FLATHUB_URL}
             recommended
             detected={os === 'linux'}
